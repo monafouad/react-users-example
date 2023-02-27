@@ -1,0 +1,9 @@
+@use '../../styles/variables' as v;
+
+.logo{
+    height: v.$logo-height;
+}
+
+header{
+    background-color: v.$primary-color;
+}

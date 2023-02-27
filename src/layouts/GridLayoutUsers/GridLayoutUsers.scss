@@ -1,0 +1,18 @@
+@use '../../styles/variables' as v;
+
+.user-item{
+    width: 30%;
+    display: block;
+    .MuiCardActions-root.MuiCardActions-spacing{
+       justify-content: right;
+    }
+}
+.MuiAvatar-root.MuiAvatar-circular{
+    text-align: center;
+}
+
+.MuiAvatar-root.MuiAvatar-circular{
+    border-radius: 50%;
+    margin: auto;
+    padding-top: 10px;
+}

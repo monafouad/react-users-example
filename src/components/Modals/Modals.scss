@@ -1,0 +1,13 @@
+@use "../../styles/variables.scss" as v;
+
+.confirmation-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.closed {
+  display: none;
+}
+
+.align-right {
+  float: right;
+}

@@ -1,0 +1,21 @@
+
+// Colors
+
+$primary-color: #219EBC;
+$primary-color-dark: darken( $primary-color, 20% );
+$primary-color-light: lighten( $primary-color, 10% );
+$black: #111;
+$white: #fff;
+$grey: #ccc;
+
+// Fonts
+$font-color: $primary-color-dark;
+$font-script: 'PT Serif', serif;
+$font-main: 'Montserrat', serif;
+
+$font-size-sm: 1rem;
+$font-size-md: 1.2rem;
+$font-size-lg: 1.8rem;
+$font-size-xl: 2rem;
+
+$logo-height: 60px;
