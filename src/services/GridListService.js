@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from 'react';
 
 export const [filteredUsers, setFilteredUsers] = useState([]);
 export const [buttonListActive, setButtonListActive] = useState(true);

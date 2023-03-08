@@ -1,25 +1,12 @@
-import {
-  Button,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  IconButton,
-  TextField,
-} from "@mui/material";
-import React, { useEffect, useState } from "react";
-import {
-  FORM_EMAIL,
-  FORM_NAME,
-  FORM_TITLE,
-  FORM_USERNAME,
-  SUBMIT,
-} from "../../constants/main";
-import "./Modals.scss";
+import { Dialog, DialogContent, DialogTitle, TextField } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { FORM_EMAIL, FORM_NAME, FORM_TITLE, FORM_USERNAME, SUBMIT } from '../../constants/main';
+import './Modals.scss';
 
 const EditModal = ({ user, show, closeHandler, updateUser }) => {
-  const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
     setName(user.name);
@@ -31,16 +18,8 @@ const EditModal = ({ user, show, closeHandler, updateUser }) => {
     e.stopPropagation();
   };
   return (
-    <Dialog open={show} onClose={closeHandler}>
+    <Dialog open={show} onClose={closeHandler} className="modals">
       <DialogContent onClick={(e) => stopHandler(e)}>
-        <IconButton
-          sx={{ margin: 2 }}
-          variant="icon"
-          className="close"
-          onClick={() => closeHandler()}
-        >
-          x
-        </IconButton>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -53,7 +32,8 @@ const EditModal = ({ user, show, closeHandler, updateUser }) => {
             <TextField
               type="text"
               label={FORM_NAME}
-              sx={{ width: "100%", marginTop: 2 }}
+              sx={{ width: '100%', marginTop: 2 }}
+              variant="standard"
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
@@ -62,9 +42,9 @@ const EditModal = ({ user, show, closeHandler, updateUser }) => {
 
             <TextField
               type="text"
-              size="Normal"
+              variant="standard"
               label={FORM_USERNAME}
-              sx={{ width: "100%", marginY: 4 }}
+              sx={{ width: '100%', marginY: 4 }}
               value={username}
               onChange={(e) => {
                 setUsername(e.target.value);
@@ -74,22 +54,19 @@ const EditModal = ({ user, show, closeHandler, updateUser }) => {
             <TextField
               type="text"
               label={FORM_EMAIL}
-              sx={{ width: "100%" }}
+              sx={{ width: '100%' }}
               value={email}
+              variant="standard"
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
             />
+            <div className="modals__submit">
+              <button type="submit" onClick={closeHandler}>
+                {SUBMIT}
+              </button>
+            </div>
           </DialogContent>
-          <Button
-            variant="contained"
-            size="medium"
-            className="mx-2"
-            type="submit"
-            onClick={closeHandler}
-          >
-            {SUBMIT}
-          </Button>
         </form>
       </DialogContent>
     </Dialog>

@@ -1,0 +1,14 @@
+@use '../../styles/variables' as v;
+
+header {
+  background-color: v.$primary-color;
+  padding: v.$padding-10;
+  display: flex;
+  margin-bottom: v.$margin-header;
+  a {
+    color: v.$white;
+  }
+  .logo {
+    height: v.$logo-height;
+  }
+}

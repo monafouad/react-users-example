@@ -1,87 +1,52 @@
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import ReadMoreIcon from "@mui/icons-material/ReadMore";
-import { Box } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
-import Divider from "@mui/material/Divider";
-import Fab from "@mui/material/Fab";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemText from "@mui/material/ListItemText";
-import Tooltip from "@mui/material/Tooltip";
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { IMAGE_API } from "../../constants/main";
-import "./ListLayoutUsers.scss";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import ReadMoreIcon from '@mui/icons-material/ReadMore';
+import { Grid, Avatar, Tooltip, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { IMAGE_API } from '../../constants/main';
+import './ListLayoutUsers.scss';
 
 const ListLayoutUsers = ({ users, handleDelete, handleUpdate }) => {
   const navigate = useNavigate();
 
-  const [setChanged] = useState(false);
-
-  return users.map((user, idx) => (<Box key={user.id}>
-    <ListItem key={user.id}>
-      <ListItemAvatar>
+  return users.map((user) => (
+    <Grid container spacing={2} key={user.id} className="user-list">
+      <Grid item xs={12} sm={2} className="user-list__content">
         <Tooltip title={user.username} arrow>
           <Avatar
-            className="card-img-top imgGrid"
+            className="avatar"
             variant="circular"
-            sx={{margin: 'auto', height: '10rem', paddingTop: 10, width: '10rem!important'}}
-            src={IMAGE_API + user.username + ".svg?options[mood][]=happy"}
+            src={IMAGE_API + user.username + '.svg?options[mood][]=happy'}
             alt={user.username}
           ></Avatar>
         </Tooltip>
-      </ListItemAvatar>
+      </Grid>
+      <Grid item xs={12} sm={8} className="text-align">
+        <Typography gutterBottom component="span">
+          {user.name}
+        </Typography>
+        <Typography component="p">{user.username}</Typography>
+      </Grid>
 
-      <ListItemText
-        primary={user.name}
-        secondary={user.username}
-        value={user.name}
-        onChange={(e) => {
-          setChanged(true);
-        }}
-      />
-      <ListItemText
-        primary={user.company.catchPhrase}
-        className="catchPhrase"
-        onChange={(e) => {
-          setChanged(true);
-        }}
-      />
-
-      <Fab
-        size="small"
-        color="primary"
-        aria-label="edit"
-        onClick={() => handleUpdate(user)}
-      >
-        <EditIcon />
-      </Fab>
-      <Fab
-        size="small"
-        sx={{ marginRight: 2, marginLeft: 2 }}
-        color="primary"
-        aria-label="delete"
-        onClick={() => handleDelete(user)}
-      >
-        <DeleteIcon />
-      </Fab>
-      <Fab
-        size="small"
-        color="primary"
-        aria-label="read"
-        onClick={() => navigate(`/user-detail/${user?.id}`)}
-      >
-        <ReadMoreIcon />
-      </Fab>
-    </ListItem>
-
-    <Divider key={idx} variant="inset" component="li" />
-  </Box>))
+      <Grid item xs={12} sm={2} className="user-list__actions">
+        <button aria-label="edit" onClick={() => handleUpdate(user)}>
+          <EditIcon />
+        </button>
+        <button aria-label="delete" onClick={() => handleDelete(user)}>
+          <DeleteIcon />
+        </button>
+        <button aria-label="read" onClick={() => navigate(`/user-detail/${user?.id}`)}>
+          <ReadMoreIcon />
+        </button>
+      </Grid>
+    </Grid>
+  ));
 };
 
 ListLayoutUsers.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.string
 };
+
 export default ListLayoutUsers;

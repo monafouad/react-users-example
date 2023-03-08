@@ -1,13 +1,24 @@
-@use "../../styles/variables.scss" as v;
+@use '../../styles/variables.scss' as v;
+@import '../../styles/mixins.scss';
 
-.confirmation-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-.closed {
-  display: none;
-}
+.modals {
+  &__confirmation {
+    display: flex;
+    justify-content: space-between;
+    button {
+      width: 45%;
+    }
+  }
+  &__submit {
+    display: flex;
+    margin-top: 15px;
+    justify-content: right;
+    button {
+      width: 50%;
+    }
+  }
 
-.align-right {
-  float: right;
+  button {
+    @include button-square(v.$primary-color, v.$white);
+  }
 }

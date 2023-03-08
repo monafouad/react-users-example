@@ -1,51 +1,21 @@
-import React from "react";
-import {
-  Button,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  IconButton,
-} from "@mui/material";
-import "./Modals.scss";
-import {
-  DELETE_CONFIRMATION,
-  DELETE_YES,
-  DELETE_NO,
-} from "../../constants/main";
+import React from 'react';
+import { Dialog, DialogContent, DialogTitle } from '@mui/material';
+import './Modals.scss';
+import { DELETE_CONFIRMATION, DELETE_YES, DELETE_NO } from '../../constants/main';
 
 const DeleteModal = (props) => {
   const { show, closeHandler, deleteHandler } = props;
-
   const stopHandler = (e) => {
     e.stopPropagation();
   };
   return (
-    <Dialog open={show} onClose={closeHandler}>
+    <Dialog open={show} onClose={closeHandler} className="modals">
       <DialogContent onClick={(e) => stopHandler(e)}>
-        <IconButton
-          sx={{ margin: 2 }}
-          variant="icon"
-          className="close"
-          onClick={() => closeHandler()}
-        >
-          x
-        </IconButton>
-
         <DialogTitle>{DELETE_CONFIRMATION}</DialogTitle>
         <DialogContent display="flex">
-          <div className="confirmation-buttons">
-            <Button variant="contained" size="large" onClick={deleteHandler}>
-              {DELETE_YES}
-            </Button>
-
-            <Button
-              variant="contained"
-              size="medium"
-              className="mx-2"
-              onClick={closeHandler}
-            >
-              {DELETE_NO}
-            </Button>
+          <div className="modals__confirmation">
+            <button onClick={deleteHandler}>{DELETE_YES}</button>
+            <button onClick={closeHandler}>{DELETE_NO}</button>
           </div>
         </DialogContent>
       </DialogContent>

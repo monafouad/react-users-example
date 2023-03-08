@@ -1,21 +1,38 @@
-
 // Colors
 
-$primary-color: #219EBC;
-$primary-color-dark: darken( $primary-color, 20% );
-$primary-color-light: lighten( $primary-color, 10% );
+$primary-color: #219ebc;
+$primary-color-dark: darken($primary-color, 20%);
+$primary-color-light: lighten($primary-color, 10%);
 $black: #111;
 $white: #fff;
 $grey: #ccc;
+$grey-light: #dad7cd;
+$grey-lighter: #f4f3ee;
 
 // Fonts
 $font-color: $primary-color-dark;
-$font-script: 'PT Serif', serif;
 $font-main: 'Montserrat', serif;
+$font-script: 'Kaushan Script', cursive;
 
 $font-size-sm: 1rem;
 $font-size-md: 1.2rem;
 $font-size-lg: 1.8rem;
 $font-size-xl: 2rem;
 
+// Heights
+
 $logo-height: 60px;
+$avatar-height: 120px;
+
+// Butons
+
+$button-height: 45px;
+$button-square-padding: 10px 20px;
+$button-icon-padding: 10px;
+
+// Spacing
+
+$padding-10: 10px 0;
+$padding-15: 15px;
+$padding-20: 20px;
+$margin-header: 2rem;

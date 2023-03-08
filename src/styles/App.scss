@@ -1,11 +1,28 @@
+@use './variables' as v;
+
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
 }
 h1 {
   font-size: 2.2rem;
+  font-weight: 600;
+  padding: auto;
+  margin: auto;
 }
 h2 {
   font-size: 1.6rem;
+  font-weight: 600;
+  padding: auto;
+  margin: auto;
+}
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: auto;
+  margin: auto;
 }
 
 @keyframes fadeIn {
@@ -18,15 +35,41 @@ h2 {
   }
 }
 
-.cursor-pointer {
-  cursor: pointer !important;
+.user-container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: block;
+  padding: 0px;
 }
 
-.user-details{
-  .MuiTypography-h3{
-    font-size: 1.8rem
+.full-width {
+  width: 100%;
+  display: block;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .full-width {
+    width: auto;
+    display: inline-block;
   }
-  .MuiTypography-h4{
-    font-size: 1rem;
+  .search {
+    width: 50%;
+    display: inline-block;
   }
+}
+.content-left {
+  justify-content: left;
+  display: flex;
+}
+.content-right {
+  justify-content: right;
+  display: flex;
+}
+
+footer{
+  background: v.$primary-color-dark;
+  height: v.$logo-height;
 }

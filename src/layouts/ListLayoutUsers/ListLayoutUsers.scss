@@ -1,7 +1,69 @@
 @use '../../styles/variables' as v;
+@import '../../styles/mixins.scss';
 
-$avatar-height: 10rem;
+$user-list-container-padding: 15px 0px;
+$box-shadow: 1px 2px 2px;
 
-.catchPhrase{
-    font-family: v.$font-script;
+.user-list {
+  border-bottom: 1px solid v.$grey-light;
+  font-family: v.$font-main;
+  padding: $user-list-container-padding;
+  span {
+    font-weight: 600;
+    font-size: v.$font-size-md;
+  }
+  span,
+  p {
+    font-family: v.$font-main;
+    display: block;
+  }
+  &__actions {
+    display: flex;
+    justify-content: right;
+    align-self: flex-end;
+    padding: 0px;
+    button {
+      @include icon-buttons(v.$primary-color, v.$white);
+    }
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+  }
+  &:hover {
+    background-color: v.$grey-lighter;
+    @include box-shadow($box-shadow rgba(v.$grey, 0.7));
+    border-bottom: 0;
+  }
+
+  .avatar{
+    height: v.$avatar-height;
+    width: 100%;
+    display: block;
+
+    img{
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .user-list {
+    padding: v.$padding-20;
+  }
+  .text-align{
+    text-align: center;
+  }
+
+  .user-list__content,  .user-list__actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 }

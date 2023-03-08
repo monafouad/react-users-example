@@ -1,0 +1,11 @@
+@use '../../styles/variables' as v;
+@import '../../styles/mixins.scss';
+
+.user-search {
+  input{
+    font-family: v.$font-main;
+  }
+  button {
+    @include button-square(v.$primary-color, v.$white);
+  }
+}

@@ -1,0 +1,11 @@
+@use '../../styles/variables' as v;
+@import '../../styles/mixins.scss';
+
+.grid-list-toggle {
+  &__active {
+    @include button-square(v.$primary-color, v.$white);
+  }
+  &__inactive {
+    @include button-square(v.$white, v.$primary-color);
+  }
+}

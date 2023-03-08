@@ -1,0 +1,47 @@
+@use '../../styles/variables' as v;
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin button-square($bg, $color) {
+  background: $bg;
+  font-family: v.$font-main;
+  font-size: v.$font-size-sm;
+  color: $color;
+  height: v.$button-height;
+  border: 0px;
+  text-transform: uppercase;
+  padding: v.$button-square-padding;
+  border-radius: 5px;
+  cursor: pointer;
+  @include box-shadow(1px 3px 3px rgba(v.$grey, 0.7));
+  &:hover {
+    background: darken($bg, 10%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background: darken($bg, 25%);
+  }
+}
+
+@mixin icon-buttons($bg, $color) {
+  background: $bg;
+  color: $color;
+  border-radius: 50%;
+  padding: v.$button-icon-padding;
+  margin: 5px;
+  height: v.$button-height;
+  border: 0px;
+  cursor: pointer;
+  @include box-shadow(1px 3px 3px rgba(v.$grey, 0.7));
+  &:hover {
+    background: darken($bg, 10%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background: darken($bg, 25%);
+  }
+}
